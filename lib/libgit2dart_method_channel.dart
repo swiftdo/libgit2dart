@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'libgit2dart_platform_interface.dart';
+import 'package:libgit2dart/libgit2dart_platform_interface.dart';
 
 /// An implementation of [Libgit2dartPlatform] that uses method channels.
 class MethodChannelLibgit2dart extends Libgit2dartPlatform {
@@ -11,7 +11,8 @@ class MethodChannelLibgit2dart extends Libgit2dartPlatform {
 
   @override
   Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    final version =
+        await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
   }
 }
